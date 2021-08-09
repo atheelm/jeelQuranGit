@@ -9,10 +9,10 @@ namespace jeelQuranGit.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            Title = "Grades";
+            OpenGradeCommand = new Command(async () => await Shell.Current.GoToAsync($"{nameof(GradeChildsPage)}"));
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand OpenGradeCommand { get; }
     }
 }
