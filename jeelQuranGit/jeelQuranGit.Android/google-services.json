@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "434321402143",
+    "project_id": "jeelquran-cbcdc",
+    "storage_bucket": "jeelquran-cbcdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434321402143:android:594a575ad8bdcc1512682a",
+        "android_client_info": {
+          "package_name": "com.attendance.jeelqurangit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434321402143-1bp9fspsluume0mq736t3rqto6nmt85p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzpEmGhiw11wigToKfk5N8UVYujG2y-B0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434321402143-1bp9fspsluume0mq736t3rqto6nmt85p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "434321402143-a4rhej5qj29rad4qct44gta9ioa3m7eb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.jeelQuranGit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
