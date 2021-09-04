@@ -30,11 +30,15 @@ namespace jeelQuranGit.Droid.FireStoreListener
                 var result = task.Result;
                 if (result is DocumentSnapshot doc)
                 {
-                    
+                    Student newStudent = new Student(doc.Id, "Atheel", "None");
+                    GradeStudents grade = new GradeStudents(1);
+                    grade.addStudent(newStudent);
+                    _tcs.TrySetResult(grade);
                 }
             } else
             {
                 //error
+                _tcs.TrySetResult(default(GradeStudents));
             }
         }
     }

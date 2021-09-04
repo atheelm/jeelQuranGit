@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace jeelQuranGit.Services
 {
-    public interface GradeStudentsFirestore
+    public interface IGradeStudentsFirestore
     {
         Task<GradeStudents> GetGradeStudents(int grade);
     }

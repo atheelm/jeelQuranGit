@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static jeelQuranGit.Services.GradeStudentsFirestore;
+using static jeelQuranGit.Services.IGradeStudentsFirestore;
 using Xamarin.Forms;
 using jeelQuranGit.Services;
 
@@ -10,26 +10,24 @@ namespace jeelQuranGit.ViewModels
 {
     public class GradeChildsPage : ContentPage
     {
+        //IGradeStudentsFirestore gradeFirestore;
         public GradeChildsPage()
         {
-            Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Welcome to Xamarin.Forms!" }
-                }
-            };
-        }
-        public GradeChildsPage(GradeStudentsFirestore gradeFirestore)
-        {
-            var gradeStudents = gradeFirestore.GetGradeStudents(1);
+            //var gradeStudents = gradeFirestore.GetGradeStudents(1);
+            //FirebaseApp.initializeApp();
+            var gradeStudents =  DependencyService.Get < IGradeStudentsFirestore>().GetGradeStudents(1);
             if (gradeStudents != null)
+            {
+
+            }
+            else
             {
 
             }
             Content = new StackLayout
             {
                 Children = {
-                    new Label { Text = "Welcome to Xamarin.Forms!" }
+                    new Label { Text = "Hi child" }
                 }
             };
         }

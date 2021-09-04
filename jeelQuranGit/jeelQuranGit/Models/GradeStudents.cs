@@ -8,5 +8,17 @@ namespace jeelQuranGit.Models
     {
         int grade;
         List<Student> allStudents;
+        public GradeStudents(int _grade)
+        {
+            grade = _grade;
+        }
+        public void addStudent(Student student)
+        {
+            allStudents.Add(student);
+        }
+        public Student getStudent()
+        {
+            return allStudents[0];
+        }
     }
 }

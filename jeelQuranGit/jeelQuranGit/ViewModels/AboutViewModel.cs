@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jeelQuranGit.Services;
+using System;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
