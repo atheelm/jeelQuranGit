@@ -18,7 +18,9 @@ namespace jeelQuranGit.ViewModels
             var gradeStudents =  DependencyService.Get < IGradeStudentsFirestore>().GetGradeStudents(1);
             if (gradeStudents != null)
             {
-
+                gradeStudents.Start();
+                gradeStudents.Wait();
+                gradeStudents.Result.ToString();
             }
             else
             {

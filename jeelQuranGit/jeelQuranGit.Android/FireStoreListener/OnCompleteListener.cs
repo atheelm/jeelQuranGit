@@ -22,18 +22,38 @@ namespace jeelQuranGit.Droid.FireStoreListener
         {
             _tcs = tcs;
         }
+        public Student GetStudentFromDocument(DocumentSnapshot studDoc)
+        {
+            Student newStudent = new Student("as", "Atheel", "None");
+            String phone = studDoc.GetString("phone");
+
+            return newStudent;
+        }
         public void OnComplete(Android.Gms.Tasks.Task task)
         {
             if (task.IsSuccessful)
             {
                 //process
                 var result = task.Result;
-                if (result is DocumentSnapshot doc)
+                if (result is QuerySnapshot/*Query*/ col)
                 {
-                    Student newStudent = new Student(doc.Id, "Atheel", "None");
-                    GradeStudents grade = new GradeStudents(1);
-                    grade.addStudent(newStudent);
-                    _tcs.TrySetResult(grade);
+                    IEnumerable<DocumentSnapshot> docs = col.Documents;
+                    foreach (DocumentSnapshot doc in docs)
+                    {
+                        string phone = doc.GetString("phone");
+                        string grade = doc.GetString("grade");
+                        string name = doc.Id;
+                        Student newStudent = new Student(grade, name, phone);
+                    }                  
+
+                    //QuerySnapshot allStudentsSnapshot =  await col.Get().Result;
+                    /*if (result.Documents[0] is DocumentSnapshot doc)
+                    {
+                        Student newStudent = new Student("as", "Atheel", "None");
+                        GradeStudents grade = new GradeStudents(1);
+                        grade.addStudent(newStudent);
+                        _tcs.TrySetResult(grade);
+                    }*/
                 }
             } else
             {
