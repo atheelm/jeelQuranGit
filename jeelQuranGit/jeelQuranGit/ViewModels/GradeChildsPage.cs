@@ -15,7 +15,7 @@ namespace jeelQuranGit.ViewModels
         {
             //var gradeStudents = gradeFirestore.GetGradeStudents(1);
             //FirebaseApp.initializeApp();
-            var gradeStudents =  DependencyService.Get < IGradeStudentsFirestore>().GetGradeStudents(1);
+            var gradeStudents =  DependencyService.Get < IGradeStudentsFirestore>().GetAlltudents(1);
             if (gradeStudents != null)
             {
                 gradeStudents.Start();

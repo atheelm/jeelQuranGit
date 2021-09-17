@@ -8,6 +8,8 @@ namespace jeelQuranGit.Services
 {
     public interface IGradeStudentsFirestore
     {
-        Task<GradeStudents> GetGradeStudents(int grade);
+        Task<GradeStudents> GetAllStudents(int grade);
+        Task<GradeStudents> GetGradeStudentsAttendances(int grade);
+        Task<GradeStudents> SetStudentAttendance(int grade, string name);
     }
 }

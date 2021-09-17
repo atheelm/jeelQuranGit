@@ -26,7 +26,7 @@ namespace jeelQuranGit.Droid.Services
         {
             FirebaseApp.InitializeApp();
         }*/
-        public async Task<GradeStudents> GetGradeStudents(int grade)
+        public async Task<GradeStudents> GetAllStudents(int grade)
         {
             
             var tcs = new TaskCompletionSource<GradeStudents>();
