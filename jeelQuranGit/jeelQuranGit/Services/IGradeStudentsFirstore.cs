@@ -8,8 +8,11 @@ namespace jeelQuranGit.Services
 {
     public interface IGradeStudentsFirestore
     {
-        Task<GradeStudents> GetAllStudents(int grade);
-        Task<GradeStudents> GetGradeStudentsAttendances(int grade);
-        Task<GradeStudents> SetStudentAttendance(int grade, string name);
+        
+        Task<List<Student>> GetAllStudents(); //Return all students info from firestore (name + grade + phone) return List<Student>
+
+        Task<List<Tuple<String,bool>>> GetGradeStudentsAttendances(int grade); //Return grade all students attendances returns List<Tuple<name,attendance>>
+        
+        Task<bool> SetStudentAttendance(int grade, string name); //Set student attendance in firestore. return success / not
     }
 }

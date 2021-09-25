@@ -11,6 +11,7 @@ namespace jeelQuranGit.Models
         public GradeStudents(int _grade)
         {
             grade = _grade;
+            allStudents = new List<Student>();
         }
         public void addStudent(Student student)
         {

@@ -26,12 +26,23 @@ namespace jeelQuranGit.Droid.Services
         {
             FirebaseApp.InitializeApp();
         }*/
-        public async Task<GradeStudents> GetAllStudents(int grade)
+        public Task<List<Student>> GetAllStudents()
         {
             
-            var tcs = new TaskCompletionSource<GradeStudents>();
+            var tcs = new TaskCompletionSource<List<Student>>();
             FirebaseFirestore.Instance.Collection("StudentsNames").Get().AddOnCompleteListener(new OnCompleteListener(tcs));
-            return await tcs.Task;
+            //tcs.Task.Start();//??
+            //tcs.Task.Wait();
+            return  tcs.Task;
+        }
+        public Task<List<Tuple<string, bool>>> GetGradeStudentsAttendances(int grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SetStudentAttendance(int grade, string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

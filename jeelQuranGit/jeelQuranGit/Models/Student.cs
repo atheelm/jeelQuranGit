@@ -20,11 +20,14 @@ namespace jeelQuranGit.Models
         {
           
             name = _name;
+            phone = _phone;
+            grade = Int32.Parse(_grade);
         }
         public Student (int _grade, string _name ,string _phone)
         {
             grade = _grade;
             name = _name;
+            phone = _phone;
         }
 
     }

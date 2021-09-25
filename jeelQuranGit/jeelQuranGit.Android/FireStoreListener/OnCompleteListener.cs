@@ -17,8 +17,8 @@ namespace jeelQuranGit.Droid.FireStoreListener
 {
     public class OnCompleteListener : Java.Lang.Object, IOnCompleteListener
     {
-        private TaskCompletionSource<GradeStudents> _tcs;
-        public OnCompleteListener(TaskCompletionSource<GradeStudents> tcs)
+        private TaskCompletionSource<List<Student>> _tcs;
+        public OnCompleteListener(TaskCompletionSource<List<Student>> tcs)
         {
             _tcs = tcs;
         }
@@ -38,14 +38,17 @@ namespace jeelQuranGit.Droid.FireStoreListener
                 if (result is QuerySnapshot/*Query*/ col)
                 {
                     IEnumerable<DocumentSnapshot> docs = col.Documents;
+                    List<Student> allStudents = new List<Student>();
                     foreach (DocumentSnapshot doc in docs)
                     {
                         string phone = doc.GetString("phone");
                         string grade = doc.GetString("grade");
                         string name = doc.Id;
                         Student newStudent = new Student(grade, name, phone);
-                    }                  
-
+                        allStudents.Add(newStudent);
+                    }
+                    _tcs.TrySetResult(allStudents);
+                    return;
                     //QuerySnapshot allStudentsSnapshot =  await col.Get().Result;
                     /*if (result.Documents[0] is DocumentSnapshot doc)
                     {
@@ -53,12 +56,13 @@ namespace jeelQuranGit.Droid.FireStoreListener
                         GradeStudents grade = new GradeStudents(1);
                         grade.addStudent(newStudent);
                         _tcs.TrySetResult(grade);
+
                     }*/
                 }
             } else
             {
                 //error
-                _tcs.TrySetResult(default(GradeStudents));
+                _tcs.TrySetResult(default(List<Student>));
             }
         }
     }
