@@ -6,9 +6,9 @@ namespace jeelQuranGit.Models
 {
     public class Student
     {
-        int grade;
-        string name;
-        string phone;
+        public int grade;
+        public string name;
+        public string phone;
     public
         Student ()
         {
