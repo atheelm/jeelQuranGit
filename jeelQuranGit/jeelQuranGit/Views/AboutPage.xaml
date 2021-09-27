@@ -31,27 +31,27 @@
             <StackLayout Orientation="Vertical" Padding="30,24,30,10" Spacing="10">
                 <Label Text="إختر الصف لتسجيل الحضور" FontSize="Title" Margin="5"/>
                 <Button Margin="0,10,0,0" Text="صف الأول"
-                        Clicked="OnButton1Clicked"
+                        Clicked="OnButtonClicked" BindingContext="1"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
                 <Button Margin="0,10,0,0" Text="صف الثاني"
-                        Command="{Binding OpenGradeCommand}"
+                        Clicked="OnButtonClicked" BindingContext="2"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
                 <Button Margin="0,10,0,0" Text="صف الثالث"
-                        Command="{Binding OpenGradeCommand}"
+                        Clicked="OnButtonClicked" BindingContext="3"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
                 <Button Margin="0,10,0,0" Text="صف الرابع"
-                        Command="{Binding OpenGradeCommand}"
+                        Clicked="OnButtonClicked" BindingContext="4"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
                 <Button Margin="0,10,0,0" Text="صف الخامس"
-                        Command="{Binding OpenGradeCommand}"
+                        Clicked="OnButtonClicked" BindingContext="5"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
                 <Button Margin="0,10,0,0" Text="صف السادس"
-                        Command="{Binding OpenGradeCommand}"
+                        Clicked="OnButtonClicked" BindingContext="6"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
             </StackLayout>

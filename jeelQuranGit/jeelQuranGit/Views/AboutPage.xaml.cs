@@ -16,12 +16,22 @@ namespace jeelQuranGit.Views
         {
             InitializeComponent();
         }
-        async void OnButton1Clicked(object sender, EventArgs args)
+        async void OnButtonClicked(object sender, EventArgs args)
         {
             Task<System.Collections.Generic.List<Student>> gradeStudents = DependencyService.Get<Services.IGradeStudentsFirestore>().GetAllStudents();
             List<Student> studentsList = await gradeStudents;
-            string firstGrade = "1";
-            var jsonStudents = JsonConvert.SerializeObject(studentsList);
+            List<Student> firstGradeList = new List<Student>();
+            string firstGrade = ((Button)sender).BindingContext as string;
+            foreach (Student student in studentsList)
+            {
+                if (student.grade.ToString() == firstGrade)
+                {
+                    firstGradeList.Add(student);
+                }
+            }
+
+            
+            var jsonStudents = JsonConvert.SerializeObject(firstGradeList);
             await Shell.Current.GoToAsync($"{nameof(GradeChildsPage)}?Students={jsonStudents}&Grade={firstGrade}");
         }
     }
