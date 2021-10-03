@@ -16,23 +16,28 @@ namespace jeelQuranGit.ViewModels
     public class GradeChildsPage : ContentPage
     {
         List<Student> allStudents;
-        string studentsName;
         string grade;
+        Grid studentsGrid;
         public GradeChildsPage()
         {
             grade = "0";
             Content = new StackLayout
             {
-                Children = {
-                    new Label { Text = "Hi boy" }
-                }
             };
+            studentsGrid = new Grid();
         }
-        public GradeChildsPage(int _grade, List<Student> _allStudents)
+        private void createButtons()
         {
-            
-            //allStudents = _allStudents;
-            //grade = _grade;
+            foreach (Student student in allStudents)
+            {
+                Button btn = new Button()
+                {
+                    Text = student.name,
+                    StyleId = student.name
+                };
+                //btn.Clicked 
+                studentsGrid.Children.Add(btn);
+            }
         }
         public string GradeEntry
         {
@@ -49,6 +54,12 @@ namespace jeelQuranGit.ViewModels
                 allStudents = JsonConvert.DeserializeObject<List<Student>>(value);
                 //allStudents = data;
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            createButtons();
+            this.Content = studentsGrid;
         }
     }
 }

@@ -20,19 +20,19 @@ namespace jeelQuranGit.Views
         {
             Task<System.Collections.Generic.List<Student>> gradeStudents = DependencyService.Get<Services.IGradeStudentsFirestore>().GetAllStudents();
             List<Student> studentsList = await gradeStudents;
-            List<Student> firstGradeList = new List<Student>();
-            string firstGrade = ((Button)sender).BindingContext as string;
+            List<Student> currGradeList = new List<Student>();
+            string currGrade = ((Button)sender).BindingContext as string;
             foreach (Student student in studentsList)
             {
-                if (student.grade.ToString() == firstGrade)
+                if (student.grade.ToString() == currGrade)
                 {
-                    firstGradeList.Add(student);
+                    currGradeList.Add(student);
                 }
             }
 
             
-            var jsonStudents = JsonConvert.SerializeObject(firstGradeList);
-            await Shell.Current.GoToAsync($"{nameof(GradeChildsPage)}?Students={jsonStudents}&Grade={firstGrade}");
+            var jsonStudents = JsonConvert.SerializeObject(currGradeList);
+            await Shell.Current.GoToAsync($"{nameof(GradeChildsPage)}?Students={jsonStudents}&Grade={currGrade}");
         }
     }
 }
